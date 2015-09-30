@@ -30,6 +30,14 @@ To read the man page:
 
     $ gem man prot
 
+## Testing
+
+    $ brew install bats # OS X
+
+For other OS, see https://github.com/sstephenson/bats.git
+
+    $ bats bats/*.bat
+
 ## Contributing
 
 1. Fork it ( https://github.com/sawtelle/prot/fork )
@@ -37,3 +45,4 @@ To read the man page:
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
 5. Create a new Pull Request
+
