@@ -31,6 +31,8 @@ To read the man page:
 
     $ gem man prot
 
+To peruse meta-thoughts: https://github.com/sawtelle/prot/wiki
+
 ## Testing
 
     $ brew install bats # OS X
