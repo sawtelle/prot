@@ -2,7 +2,8 @@
 
 Prot is a command-line tool for rotating credentials.
 
-So far it works with heroku's postgresql and heroku's Redis Cloud.
+So far it works with heroku's postgresql and heroku's Redis Cloud
+and has been tested only on OS X.
 
 Prot uses the heroku CLI to handle postgresql; it drives web UI
 to handle Redis Cloud.
