@@ -5,14 +5,12 @@ prot(1) -- rotate passwords
 
 `prot` help<br>
 `prot` help `COMMAND`<br>
-`prot` heroku_postgresql<br>
-`prot` heroku_postgresql `--app` <heroku_app_name><br>
-`prot` heroku_rediscloud `--app` <heroku_app_name> `--new_password` <password> `--heroku_email` <email> `--heroku_password` <password><br>
+`prot` heroku-postgresql<br>
+`prot` heroku-postgresql `--app` <heroku_app_name><br>
+`prot` heroku-rediscloud `--app` <heroku_app_name> `--new-password` <password> `--heroku-email` <email> `--heroku-password` <password><br>
 
 ## DESCRIPTION
 **prot** is a command-line tool for rotating passwords.
-
-This description could be longer.
 
 ## FILES
 
@@ -46,9 +44,9 @@ determines it via heroku CLI.
 
 Rotate the credentials of the heroku app's default heroku postgres database:
 
-    $ prot heroku_postgresql --app fencepost
+    $ prot heroku-postgresql --app fencepost
 
 Rotate the credentials of the heroku app's default Redis Cloud instance:
 
-    $ prot heroku_rediscloud --app fencepost --new_password 'newR3d!sp@SS'--heroku_email my.email@gmail.com --heroku_password 'mYher0kup@SS'
+    $ prot heroku-rediscloud --app fencepost --new-password 'newR3d!sp@SS'--heroku-email my.email@gmail.com --heroku-password 'mYher0kup@SS'
 
