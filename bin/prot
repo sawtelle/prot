@@ -1,0 +1,14 @@
+#!/usr/bin/env ruby
+
+SCRIPT_NAME = File.basename($0)
+
+begin
+  require 'thor'
+  require 'prot'
+  include Prot
+
+  Prot.cli
+rescue LoadError
+  $stderr.puts("#{SCRIPT_NAME}: prot or a dependency failed to load.")
+  exit(1)
+end

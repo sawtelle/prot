@@ -1,0 +1,79 @@
+.\" generated with Ronn/v0.7.3
+.\" http://github.com/rtomayko/ronn/tree/0.7.3
+.
+.TH "PROT" "1" "September 2015" "" ""
+.
+.SH "NAME"
+\fBprot\fR \- rotate passwords
+.
+.SH "SYNOPSIS"
+\fBprot\fR help
+.
+.br
+\fBprot\fR help \fBCOMMAND\fR
+.
+.br
+\fBprot\fR heroku_postgresql
+.
+.br
+\fBprot\fR heroku_postgresql \fB\-\-app\fR \fIheroku_app_name\fR
+.
+.br
+\fBprot\fR heroku_rediscloud \fB\-\-app\fR \fIheroku_app_name\fR \fB\-\-new_password\fR \fIpassword\fR \fB\-\-heroku_email\fR \fIemail\fR \fB\-\-heroku_password\fR \fIpassword\fR
+.
+.br
+.
+.SH "DESCRIPTION"
+\fBprot\fR is a command\-line tool for rotating passwords\.
+.
+.P
+This description could be longer\.
+.
+.SH "FILES"
+No files are used directly, but some commands are sensitive to file system context\. For example, if prot is run in a directory of a heroku app, \fB\-\-app\fR \fIheroku_app_name\fR may be ommitted, and \fBprot\fR determines it via heroku CLI\.
+.
+.SH "OPTIONS"
+.
+.IP "\(bu" 4
+\fB\-\-app HEROKU_APP_NAME\fR: Explicitly specify heroku app name\. Required unless running prot from a heroku app directory\.
+.
+.IP "\(bu" 4
+\fB\-\-verbose\fR: Include output of shell commands such as heroku CLI\.
+.
+.IP "\(bu" 4
+\fB\-\-quiet\fR: Suppress all output other then new password if successful\. Does not suppress asking for confirmation, so typically used with "\-\-yes"\.
+.
+.IP "\(bu" 4
+\fB\-\-yes\fR Take all actions without asking for confirmation\. If STDOUT is not a tty, \fB\-\-yes\fR must be present in command line\. Be careful!
+.
+.IP "" 0
+.
+.SH "COMMANDS"
+\fBprot help\fR to list commands\. \fBprot help COMMAND\fR to show longer help for COMMAND\.
+.
+.SH "EXAMPLES"
+Rotate the credentials of the heroku app\'s default heroku postgres database:
+.
+.IP "" 4
+.
+.nf
+
+$ prot heroku_postgresql \-\-app fencepost
+.
+.fi
+.
+.IP "" 0
+.
+.P
+Rotate the credentials of the heroku app\'s default Redis Cloud instance:
+.
+.IP "" 4
+.
+.nf
+
+$ prot heroku_rediscloud \-\-app fencepost \-\-new_password \'newR3d!sp@SS\'\-\-heroku_email my\.email@gmail\.com \-\-heroku_password \'mYher0kup@SS\'
+.
+.fi
+.
+.IP "" 0
+

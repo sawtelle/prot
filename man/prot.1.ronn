@@ -1,0 +1,54 @@
+prot(1) -- rotate passwords
+=====================================================
+
+## SYNOPSIS
+
+`prot` help<br>
+`prot` help `COMMAND`<br>
+`prot` heroku_postgresql<br>
+`prot` heroku_postgresql `--app` <heroku_app_name><br>
+`prot` heroku_rediscloud `--app` <heroku_app_name> `--new_password` <password> `--heroku_email` <email> `--heroku_password` <password><br>
+
+## DESCRIPTION
+**prot** is a command-line tool for rotating passwords.
+
+This description could be longer.
+
+## FILES
+
+No files are used directly, but some commands are sensitive to file system context. For example, if
+prot is run in a directory of a heroku app, `--app` <heroku_app_name> may be ommitted, and `prot`
+determines it via heroku CLI.
+
+## OPTIONS
+
+  * `--app HEROKU_APP_NAME`:
+    Explicitly specify heroku app name. Required unless running prot from a heroku app directory.
+
+  * `--verbose`:
+    Include output of shell commands such as heroku CLI.
+
+  * `--quiet`:
+    Suppress all output other then new password if successful.
+    Does not suppress asking for confirmation, so typically used with "--yes".
+
+  * `--yes`
+    Take all actions without asking for confirmation.
+    If STDOUT is not a tty, `--yes` must be present in command line.
+    Be careful!
+
+## COMMANDS
+
+`prot help` to list commands.
+`prot help COMMAND` to show longer help for COMMAND.
+
+## EXAMPLES
+
+Rotate the credentials of the heroku app's default heroku postgres database:
+
+    $ prot heroku_postgresql --app fencepost
+
+Rotate the credentials of the heroku app's default Redis Cloud instance:
+
+    $ prot heroku_rediscloud --app fencepost --new_password 'newR3d!sp@SS'--heroku_email my.email@gmail.com --heroku_password 'mYher0kup@SS'
+
