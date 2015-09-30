@@ -23,8 +23,4 @@ Gem::Specification.new do |spec|
   spec.add_runtime_dependency 'selenium-webdriver', '~> 2.47'
 
   spec.add_development_dependency "bundler", "~> 1.6"
-  spec.add_development_dependency "rake", "~> 10.4"
-  spec.add_development_dependency "aruba", "~> 0.9"
-  spec.add_development_dependency "rspec", "~> 3.3"
-  spec.add_development_dependency "minitest"
 end
