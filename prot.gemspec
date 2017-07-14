@@ -19,8 +19,9 @@ Gem::Specification.new do |spec|
   spec.require_paths = ["lib"]
 
   spec.add_runtime_dependency 'thor', '~> 0.19'
-  spec.add_runtime_dependency 'capybara', '~> 2.5'
-  spec.add_runtime_dependency 'selenium-webdriver', '~> 2.47'
+  spec.add_runtime_dependency 'capybara', '~> 2.14'
+  spec.add_runtime_dependency 'selenium-webdriver', '~> 3.4'
+  spec.add_runtime_dependency 'poltergeist', '~> 1.15'
 
-  spec.add_development_dependency "bundler", "~> 1.6"
+  spec.add_development_dependency "bundler", "~> 1.15"
 end
