@@ -46,18 +46,30 @@ module Prot
     method_option :heroku_password, :type => :string, :desc => "password for login to heroku", :required => true
     def heroku_rediscloud
       require 'capybara'
-
       check_global_options
+
       say("heroku_config_redis_password=" + heroku_config_redis_password, :blue) unless options[:quiet]
 
-      # TODO: Deal with errors if they occur
+      # TODO: Deal gracefully with errors if they occur
 
       app = heroku_app_name
       new_password = options[:new_password]
       heroku_email = options[:heroku_email]
       heroku_password = options[:heroku_password]
 
-      session = Capybara::Session.new(:selenium)
+      if options[:verbose]
+        session = Capybara::Session.new(:selenium)
+      else
+        require 'capybara/poltergeist'
+        Capybara.configure do |config|
+          config.run_server = false
+          config.default_driver = :poltergeist
+          config.default_max_wait_time = 30
+        end
+
+        session = Capybara::Session.new(:poltergeist)
+      end
+
       session.visit "https://dashboard.heroku.com/apps/#{app}/resources"
       wait_for_ajax(session)
       session.fill_in 'email', :with => heroku_email
@@ -212,6 +224,7 @@ module Prot
 
   # https://robots.thoughtbot.com/automatically-wait-for-ajax-with-capybara
   def wait_for_ajax(session)
+    sleep 5
     Timeout.timeout(30) do
       loop until finished_all_ajax_requests?(session)
     end
