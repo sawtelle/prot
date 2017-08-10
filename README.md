@@ -1,6 +1,8 @@
 # Prot
+ 
+Prot shows how to easily write a documented maintainable command-line utility.
 
-Prot is a command-line tool for rotating credentials.
+Prot's example mission: provide a tool for rotating credentials.
 
 So far it works with heroku's postgresql and heroku's Redis Cloud
 and has been tested only on OS X.
