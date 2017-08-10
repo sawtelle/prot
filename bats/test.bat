@@ -36,20 +36,20 @@
 }
 
 @test "invoking heroku-rediscloud without --heroku-password prints an error" {
-  run prot heroku-rediscloud --new-password 'D9YQnV7KNxyziLj' --quiet --yes --app fencepost --heroku-email don.sawtelle@gmail.com
+  run prot heroku-rediscloud --new-password 'D9YQnV7KNxyziLj' --quiet --yes --app fencepost --heroku-email your.email@gmail.com
   [ "$status" -eq 1 ]
   [[ ${lines[0]} =~ "No value provided for required options '--heroku-password'" ]]
 }
 
 @test "invoking heroku-rediscloud without --new-password prints an error" {
-  run prot heroku-rediscloud --new-password 'D9YQnV7KNxyziLj' --quiet --yes --app fencepost --heroku-email don.sawtelle@gmail.com
+  run prot heroku-rediscloud --new-password 'D9YQnV7KNxyziLj' --quiet --yes --app fencepost --heroku-email your.email@gmail.com
   [ "$status" -eq 1 ]
   [[ ${lines[0]} =~ "No value provided for required options '--heroku-password'" ]]
 }
 
 @test "rotating heroku app fencepost's rediscloud password succeeds" {
   # skip "put these in a separate file"
-  run prot heroku-rediscloud --new-password 'D9YQnV7KNxyziLj' --quiet --yes --app fencepost --heroku-email don.sawtelle@gmail.com --heroku-password '[fenestre]'
+  run prot heroku-rediscloud --new-password 'D9YQnV7KNxyziLj' --quiet --yes --app fencepost --heroku-email your.email@gmail.com --heroku-password 'your.heroku.password'
   [ "$status" -eq 0 ]
 }
 
